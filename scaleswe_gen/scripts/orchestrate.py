@@ -66,16 +66,48 @@ def repo_name_from_url(repo_url: str) -> str:
 
 
 def clone_repo_in_container(container_name: str, repo_url: str, commit: str) -> None:
-    """Clone the repo at the given commit inside a running container."""
+    """Clone the repo at the given commit inside a running container.
+
+    Tries plain checkout first. If the SHA isn't in the cloned history
+    (common for PR commits on forks/branches), fetches PR refs and retries.
+    """
     repo_name = repo_name_from_url(repo_url)
-    cmds = [
-        f"git clone {repo_url} /workspace/{repo_name}",
+
+    # 1. Full clone (no --depth, no --single-branch)
+    rc, out = docker_exec(container_name, f"git clone {repo_url} /workspace/{repo_name}", workdir="/workspace")
+    if rc != 0:
+        raise RuntimeError(f"git clone failed:\n{out}")
+
+    # 2. Try checkout
+    rc, out = docker_exec(
+        container_name,
         f"cd /workspace/{repo_name} && git checkout {commit}",
-    ]
-    for cmd in cmds:
-        rc, out = docker_exec(container_name, cmd, workdir="/workspace")
-        if rc != 0:
-            raise RuntimeError(f"Command failed: {cmd}\nOutput: {out}")
+        workdir="/workspace",
+    )
+    if rc == 0:
+        return
+
+    # 3. Checkout failed — fetch PR refs (refs/pull/*) and all tags
+    print(f"  Checkout failed, fetching PR refs and tags...")
+    rc, out = docker_exec(
+        container_name,
+        f"cd /workspace/{repo_name} && git config remote.origin.fetch '+refs/pull/*:refs/pull/*' && git fetch --all --tags",
+        workdir="/workspace",
+    )
+    if rc != 0:
+        raise RuntimeError(f"git fetch failed:\n{out}")
+
+    # 4. Retry checkout
+    rc, out = docker_exec(
+        container_name,
+        f"cd /workspace/{repo_name} && git checkout {commit}",
+        workdir="/workspace",
+    )
+    if rc != 0:
+        raise RuntimeError(
+            f"Could not check out commit {commit} in {repo_name}.\n"
+            f"Verify the SHA exists in the repo. Last output:\n{out}"
+        )
 
 
 def extract_file_from_container(container_name: str, src: str, dst: str) -> bool:
