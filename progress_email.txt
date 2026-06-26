@@ -1,0 +1,38 @@
+Subject: Progress Report — ScaleSWE Coding Agent SFT
+
+1) Read the following papers:
+- SWE-gym — training environment for SWE agents
+- SWE-smith — scalable task instance generation from GitHub PRs
+- ScaleSWE — same as SWE-smith, but now automate everything using agents
+- SWE-agent — agent framework
+- Rejection Fine-Tuning 
+
+2) Set up AweAgent to run glm-5.2-fp8 (teacher) on ScaleSWE task instances. Each instance is a real GitHub bug-fix PR with associated tests, trajectory is successful only if the agent's patch passes all F2P and P2P tests
+- 3212 unique instances processed so far
+- 1674 successful trajectories (52.1% success rate)
+- Want 2000 successful traj. for comparing this dataset with ScaleSWE's on 2000 of theirs, then 5000 later on
+- ~55 batch runs over 10 days (June 16–26)
+
+3) Built a pipeline that handles the issues of running thousands of Docker agent evaluations:
+- Time-based concurrency (4 daytime / 8 nighttime) to make sure the glm-5.2-fp8 could be used by everyone 
+- Docker cleanup between batches (container removal, system prune, image deletion for completed instances) to prevent disk exhaustion
+- Pre-filtering of instances with missing Docker images on Docker Hub
+- Docker data-root moved to /tmp-tini (overlayfs incompatible with NFS)
+- Patched SWE-smith gather.py bug (P2F, F2P)
+
+4) Studied how SWE-smith constructs task instances from GitHub PRs
+- Repo cloning at specific commits
+- Test patch application 
+- F2P / P2P test extraction
+- Docker image packaging 
+- Informs how we might extend the dataset with additional repos 
+
+5) To do
+1. Continue trajectory generation until ~7,000 successful trajectories collected
+2. Convert self-generated trajectories to SFT format
+3. Fine-tune Qwen2.5-Coder-7B-Instruct on self-generated data
+4. Evaluate on SWE-bench Verified (500 instances)
+5. Try and implement ScaleSWE's version of generating bug patches using agents
+
+Thanks,
+Nurdaulet
