@@ -41,18 +41,33 @@ PROMPTS_DIR = PROJECT_ROOT / "prompts"
 
 
 def load_llm_config(path: str) -> dict:
-    import yaml
-    with open(path) as f:
-        cfg = yaml.safe_load(f)
-    api_key = cfg.get("api_key", "")
-    if api_key.startswith("$"):
-        api_key = os.environ.get(api_key[1:], "")
-    if not api_key:
-        api_key = os.environ.get("GLM_API_KEY", "dummy")
+    """Load LLM config from a .env file.
+
+    Expected env vars:
+      GLM_BASE_URL  - e.g. http://host:port/v1
+      GLM_API_KEY   - auth token
+      GLM_MODEL     - e.g. glm-5.2-fp8
+
+    The `path` arg is the .env file path. If it doesn't exist, falls back to
+    environment variables (useful for CI/containers).
+    """
+    env_path = Path(path)
+    if env_path.exists():
+        for line in env_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            os.environ.setdefault(k, v)
+
     return {
-        "base_url": cfg["base_url"],
-        "api_key": api_key,
-        "model": cfg["model"],
+        "base_url": os.environ.get("GLM_BASE_URL", "http://localhost:8000/v1"),
+        "api_key": os.environ.get("GLM_API_KEY", "dummy"),
+        "model": os.environ.get("GLM_MODEL", "glm-5.2-fp8"),
     }
 
 
@@ -278,7 +293,8 @@ def main():
     parser.add_argument("--pr-description", default="")
     parser.add_argument("--commit-message", default="")
     parser.add_argument("--base-image", default="scaleswe-base:latest")
-    parser.add_argument("--llm-config", default=str(PROJECT_ROOT / "configs/llm/glm52_api.yaml"))
+    parser.add_argument("--env-file", default=str(Path("/public/lianghong/nurdaulet_absattarov/.env")),
+                        help="Path to .env file with GLM_BASE_URL, GLM_API_KEY, GLM_MODEL")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--max-iterations", type=int, default=100)
     parser.add_argument("--only", choices=["eba", "uca", "pswa"], action="append",
@@ -290,7 +306,7 @@ def main():
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    llm_config = load_llm_config(args.llm_config)
+    llm_config = load_llm_config(args.env_file)
     repo_url = args.repo if args.repo.startswith("http") else f"https://github.com/{args.repo}.git"
     only = args.only or ["eba", "uca", "pswa"]
 
