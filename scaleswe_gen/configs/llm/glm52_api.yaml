@@ -1,0 +1,3 @@
+base_url: http://your-proxy-host:port/v1
+api_key: $GLM_API_KEY
+model: glm-5.2-fp8
