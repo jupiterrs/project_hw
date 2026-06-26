@@ -43,13 +43,10 @@ PROMPTS_DIR = PROJECT_ROOT / "prompts"
 def load_llm_config(path: str) -> dict:
     """Load LLM config from a .env file.
 
-    Expected env vars:
-      GLM_BASE_URL  - e.g. http://host:port/v1
-      GLM_API_KEY   - auth token
-      GLM_MODEL     - e.g. glm-5.2-fp8
-
-    The `path` arg is the .env file path. If it doesn't exist, falls back to
-    environment variables (useful for CI/containers).
+    Expected env vars (Anthropic-style, matches your existing .env):
+      ANTHROPIC_BASE_URL   - e.g. http://host:port/v1
+      ANTHROPIC_AUTH_TOKEN - auth token (sk-...)
+      ANTHROPIC_MODEL      - e.g. glm-5.2-fp8
     """
     env_path = Path(path)
     if env_path.exists():
@@ -65,9 +62,9 @@ def load_llm_config(path: str) -> dict:
             os.environ.setdefault(k, v)
 
     return {
-        "base_url": os.environ.get("GLM_BASE_URL", "http://localhost:8000/v1"),
-        "api_key": os.environ.get("GLM_API_KEY", "dummy"),
-        "model": os.environ.get("GLM_MODEL", "glm-5.2-fp8"),
+        "base_url": os.environ.get("ANTHROPIC_BASE_URL", "http://localhost:8000/v1"),
+        "api_key": os.environ.get("ANTHROPIC_AUTH_TOKEN", "dummy"),
+        "model": os.environ.get("ANTHROPIC_MODEL", "glm-5.2-fp8"),
     }
 
 
