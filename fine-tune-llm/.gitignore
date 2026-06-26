@@ -1,0 +1,15 @@
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+# .env
+.pytest_cache/
+aime_pdfs/*.pdf
+aime_pdfs/extracted/
+aime_pdfs/newextracted/
+aime_pdfs/notextracted/
+*.lock
+sft-data/.python-version

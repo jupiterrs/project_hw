@@ -1,0 +1,338 @@
+{
+  "model_id": "meta-llama/Llama-3.2-3B",
+  "dataset": "sft-data/aime_test.jsonl",
+  "total_problems": 35,
+  "metrics": {
+    "task_accuracy": 0.0,
+    "format_compliance_rate": 8.57,
+    "code_success_rate": 66.67,
+    "code_error_rate": 33.33,
+    "self_correction_rate": 0.0,
+    "avg_turns_per_problem": 7.0
+  },
+  "answer_breakdown": {
+    "tagged": 18,
+    "tagged_explanation": "model used <answer>...</answer> tags correctly",
+    "fallback": 17,
+    "fallback_explanation": "no <answer> tag found, answer extracted from last number in response",
+    "no_answer": 0,
+    "correct": 0
+  },
+  "per_problem": [
+    {
+      "problem_idx": 1,
+      "true_answer": "62",
+      "model_answer": "00423",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 2,
+      "true_answer": "69",
+      "model_answer": "3",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 3,
+      "true_answer": "321",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 9,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 4,
+      "true_answer": "564",
+      "model_answer": "13",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 5,
+      "true_answer": "45",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 6,
+      "true_answer": "56",
+      "model_answer": "40",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 7,
+      "true_answer": "360",
+      "model_answer": "13",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 8,
+      "true_answer": "252",
+      "model_answer": "15",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 9,
+      "true_answer": "896",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 10,
+      "true_answer": "189",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 11,
+      "true_answer": "600",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 12,
+      "true_answer": "925",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 7,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 13,
+      "true_answer": "157",
+      "model_answer": "14",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 14,
+      "true_answer": "440",
+      "model_answer": "16",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 15,
+      "true_answer": "210",
+      "model_answer": "1",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 16,
+      "true_answer": "195",
+      "model_answer": "565",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 17,
+      "true_answer": "683",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 18,
+      "true_answer": "351",
+      "model_answer": "2",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 19,
+      "true_answer": "196",
+      "model_answer": "0",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 20,
+      "true_answer": "781",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 5,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 21,
+      "true_answer": "222",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 7,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 22,
+      "true_answer": "791",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 23,
+      "true_answer": "195",
+      "model_answer": "9",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 24,
+      "true_answer": "134",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 25,
+      "true_answer": "13",
+      "model_answer": "49152",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 26,
+      "true_answer": "544",
+      "model_answer": "0",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 27,
+      "true_answer": "168",
+      "model_answer": "7",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 28,
+      "true_answer": "74",
+      "model_answer": "11",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 29,
+      "true_answer": "800",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 30,
+      "true_answer": "112",
+      "model_answer": "a_2018*a_2020*a_2022",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 31,
+      "true_answer": "37",
+      "model_answer": "3",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 32,
+      "true_answer": "556",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 6,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 33,
+      "true_answer": "756",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 0
+    },
+    {
+      "problem_idx": 34,
+      "true_answer": "461",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 5,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 35,
+      "true_answer": "647",
+      "model_answer": "...",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 0
+    }
+  ]
+}

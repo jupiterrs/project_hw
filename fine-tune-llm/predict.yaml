@@ -1,0 +1,20 @@
+### Model and LoRA Settings
+model_name_or_path: meta-llama/Llama-3.2-3B
+adapter_name_or_path: saves/math_sft_train  # <-- THIS IS THE MAGIC KEY
+finetuning_type: lora
+template: llama3
+
+### Evaluation Engine Settings
+stage: sft
+do_predict: true                 # Tells the engine: "Don't train, just generate answers"
+do_eval: true
+predict_with_generate: true
+
+### Dataset Settings
+dataset_dir: /public/nurdaulet_absattarov/fine-tune-llm/sft-data
+eval_dataset: m_test       # The key in dataset_info.json that points to aime_test.jsonl
+output_dir: saves/eval_results   # Where to dump the generated answers
+
+### Generation Parameters
+per_device_eval_batch_size: 4
+max_new_tokens: 1024

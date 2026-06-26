@@ -1,0 +1,10 @@
+# GLM-5.2 via Anthropic-compatible proxy
+backend: anthropic
+base_url: ${ANTHROPIC_BASE_URL}
+api_key: ${ANTHROPIC_AUTH_TOKEN}
+model: glm-5.2-fp8
+params:
+  temperature: 0.95
+  max_tokens: 32768
+thinking: false
+

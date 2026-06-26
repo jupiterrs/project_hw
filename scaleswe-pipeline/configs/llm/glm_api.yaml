@@ -1,0 +1,8 @@
+backend: anthropic
+base_url: ${ANTHROPIC_BASE_URL}
+api_key: ${ANTHROPIC_AUTH_TOKEN}
+model: ${ANTHROPIC_MODEL}
+params:
+  temperature: 0.95
+  max_tokens: 32768
+thinking: false

@@ -1,0 +1,338 @@
+{
+  "model_id": "meta-llama/Llama-3.2-3B",
+  "dataset": "sft-data/aime_test.jsonl",
+  "total_problems": 35,
+  "metrics": {
+    "task_accuracy": 0.0,
+    "format_compliance_rate": 71.11,
+    "code_success_rate": 17.74,
+    "code_error_rate": 95.16,
+    "self_correction_rate": 33.33,
+    "avg_turns_per_problem": 3.86
+  },
+  "answer_breakdown": {
+    "tagged": 31,
+    "tagged_explanation": "model used <answer>...</answer> tags correctly",
+    "fallback": 4,
+    "fallback_explanation": "no <answer> tag found, answer extracted from last number in response",
+    "no_answer": 0,
+    "correct": 0
+  },
+  "per_problem": [
+    {
+      "problem_idx": 1,
+      "true_answer": "62",
+      "model_answer": "3716",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 10,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 2,
+      "true_answer": "69",
+      "model_answer": "153",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 3,
+      "true_answer": "321",
+      "model_answer": "51/32 or 157/96",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 4,
+      "true_answer": "564",
+      "model_answer": "`999`",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 8,
+      "code_attempts": 5
+    },
+    {
+      "problem_idx": 5,
+      "true_answer": "45",
+      "model_answer": "108",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 6,
+      "true_answer": "56",
+      "model_answer": "`5`",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 7,
+      "true_answer": "360",
+      "model_answer": "$$\\textstyle{\\left(\\dfrac{-82i + 25}{21}\\right)\\cdot\\dfrac{20}{19}} = \\boxed{\\mathbf{24}}$$",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 8,
+      "true_answer": "252",
+      "model_answer": "**Answer:** **128**",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 2
+    },
+    {
+      "problem_idx": 9,
+      "true_answer": "896",
+      "model_answer": "<tool>\n```python\nreal_part // 1000\n```\n</tool> \u03bd\u03b5\u03c6\u03bf\u03ba\u03ac\u03bb\u03c5\u03c8\u03b7\u03c2",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 10,
+      "true_answer": "189",
+      "model_answer": "```/testify\nassert result == 2520\n```",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 6,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 11,
+      "true_answer": "600",
+      "model_answer": "246",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 8,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 12,
+      "true_answer": "925",
+      "model_answer": "231",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 13,
+      "true_answer": "157",
+      "model_answer": "<tool>\n```python\nresult\n299\n```\n</tool>\u044f\u0431\u0440\u044fcorlib \u0627\u0631\u0632\u06cc",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 2
+    },
+    {
+      "problem_idx": 14,
+      "true_answer": "440",
+      "model_answer": "500",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 5,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 15,
+      "true_answer": "210",
+      "model_answer": "56",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 16,
+      "true_answer": "195",
+      "model_answer": "`142`",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 2
+    },
+    {
+      "problem_idx": 17,
+      "true_answer": "683",
+      "model_answer": "724",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 5,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 18,
+      "true_answer": "351",
+      "model_answer": "$$\\frac{91}{2}$$",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 19,
+      "true_answer": "196",
+      "model_answer": "28",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 20,
+      "true_answer": "781",
+      "model_answer": "787",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 5,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 21,
+      "true_answer": "222",
+      "model_answer": "$$\na=b>c=(b^2+b)/a.\n$$\nHence $a\\cdot c=b^2/b.$ And since $a\\le b,$ we get $a\\cdot c\\le b^3/b.\\,$ Now note that $b^3\\le ab^2$ because the left side is nonnegative while the right side equals $a(b^2+b),$ and thus $b^3/a\\le b^2+b$ because $a\\le b.$ Therefore $a\\cdot c\\le b^2+b,$ and the result follows from the original inequality.",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 22,
+      "true_answer": "791",
+      "model_answer": "46",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 23,
+      "true_answer": "195",
+      "model_answer": "$$\\boxed{19}$$",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 24,
+      "true_answer": "134",
+      "model_answer": "21",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 25,
+      "true_answer": "13",
+      "model_answer": "142",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 6,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 26,
+      "true_answer": "544",
+      "model_answer": "<tool>\n```py\ncount = 5*4/2 + 3**6 + 2^7 + 1**8 = 95\nresult = 96\nassert result == 96\nassert result == count\nprint(result)\n```\n</tool>\u00a0\u0e19\u0e32\u0e07t`\ufffd\u6570\n\nThe total number of paths between pairs of points can be calculated according to the formula $\\binom{N}{2}$. For example, let's consider four cities $A$, $B$, $C$ and $D$: there are six two-city paths ($AB$, $AC$, $AD$, $BC$, $BD$, and $CD$), three three-city paths ($ABC$, $ABD$, $ADC$, $BCD$, and $CBD$), two four-city paths ($ABCD$), and only one five-city path ($ABCDE$).\n\nFor more than seven cities, the number of paths will increase exponentially with increasing city count because we must choose which sets of cities form our \"paths\". Thus the number of valid paths increases geometrically; however, some paths may contain cycles so they cannot serve as routes. We need to exclude those paths where the route contains multiple visits to the same place.\n\nOne approach would be to simply calculate all combinations of subsets containing every element and then discard ones that have repeated elements. This requires computing ${\\frac {7! }{3!*4!}}=35$ combinations.",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 27,
+      "true_answer": "168",
+      "model_answer": "1444",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 28,
+      "true_answer": "74",
+      "model_answer": "<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000 \u3000 \u3000\n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000 \u3000 \u3000 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000   \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000     \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000 \u00a0\u00a0\u00a0       \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000          \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \u00a0\u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000            \u00a0\u00a0  \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000 \u3000            \u00a0\u00a0\u00a0\u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000                \u00a0\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000        \u00a0\u00a0 \u00a0\u00a0 \u00a0\u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000       \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000                        \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000                  \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0  \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000               \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n```\n</tool>\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000               \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \n\n<tool>\n```\n<tool>\n``",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 29,
+      "true_answer": "800",
+      "model_answer": "900",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 2,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 30,
+      "true_answer": "112",
+      "model_answer": "$$\n<a_{\n2018}\n=\n<\n\\end{align}\n\n<tool>\n$$\n<a_{\n2020}>\n=\n\n<tool>\n\n<tool>\n$$\n<a_{\n2022}> =\n\n<tool>\n\n<tool>\n$$\n<a_{\n2038}>\n<tool>\n\n<tool>\n$$\n<a_{\n2046}>\n<tool>\n\n<tool>\n$$\n<a_{\n2054}>\n<tool>\n\n<tool>\n$$\n<a_{\n2062}>\n<tool>\n\n<tool>\n$$\n<a_{\n2070}>\n<tool>\n\n<tool>\n$$\n<a_{\n2086}>\n<tool>\n\n<tool>\n$$\n<a_{\n2098}>\n<tool>\n\n<tool>\n$$\n<a_{\n2106}>\n<tool>\n\n<tool>\n$$\n<a_{\n2118}>\n<tool>\n\n<tool>\n$$\n<a_{\n2128}>\n<tool>\n\n<tool>\n$$\n<a_{\n2134}>\n<tool>\n\n<tool>\n$$\n<a_{\n2146}>\n<tool>\n\n<tool>\n$$\n<a_{\n2150}>\n<tool>\n\n<tool>\n$$\n<a_{\n2168}>\n<tool>\n\n<tool>\n$$\n<a_{\n2178}>\n<tool>\n\n<tool>\n$$\n<a_{\n2186}>\n<tool>\n\n<tool>\n$$\n<a_{\n2190}>\n<tool>\n\n<tool>\n$$\n<a_{\n2200}>\n<tool>",
+      "answer_source": "fallback",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 31,
+      "true_answer": "37",
+      "model_answer": "$$\\begin{array}{rcl}\n & \\textstyle { 8 } \\\\\n&= 8 \\\\[10pt]\n\\end{array}$$pan\u011bl.\u201d\n\n\n\n<answer>\tTokenName.GraphicsUnit=\u201cpx2\u201d;",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 6,
+      "code_attempts": 4
+    },
+    {
+      "problem_idx": 32,
+      "true_answer": "556",
+      "model_answer": "36",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 7,
+      "code_attempts": 5
+    },
+    {
+      "problem_idx": 33,
+      "true_answer": "756",
+      "model_answer": "8",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 7,
+      "code_attempts": 3
+    },
+    {
+      "problem_idx": 34,
+      "true_answer": "461",
+      "model_answer": "27",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 3,
+      "code_attempts": 1
+    },
+    {
+      "problem_idx": 35,
+      "true_answer": "647",
+      "model_answer": "7/24",
+      "answer_source": "tagged",
+      "correct": false,
+      "num_turns": 4,
+      "code_attempts": 2
+    }
+  ]
+}

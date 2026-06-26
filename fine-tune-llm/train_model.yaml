@@ -1,0 +1,33 @@
+model_name_or_path: meta-llama/Llama-3.2-3B
+stage: sft                                            # Supervised Fine-Tuning
+do_train: true
+finetuning_type: lora                                 # Use 'full' for full parameter tuning
+
+### 2. Dataset Configuration
+dataset_dir: /public/nurdaulet_absattarov/fine-tune-llm/sft-data
+dataset: m_train                           # MUST match the name in dataset_info.json
+template: llama3                                      # CRITICAL: Must match your base model's format
+cutoff_len: 2048                                      # Max token length per sample
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### 3. LoRA Hyperparameters
+lora_target: all                                      # Applies LoRA to all linear layers (highly recommended)
+lora_rank: 8                                          # Core bottleneck dimension (8 or 16 is typical)
+lora_alpha: 16                                        # Scaling factor (usually 2x lora_rank)
+lora_dropout: 0.1
+
+### 4. Training Hyperparameters
+output_dir: saves/math_sft_train          # Where your weights will save
+per_device_train_batch_size: 4                        # Adjust based on your GPU VRAM
+gradient_accumulation_steps: 4                        # Effective batch size = batch_size * accumulation_steps
+learning_rate: 0.0002                                 # 2e-4 is standard for LoRA SFT
+num_train_epochs: 3.0                                 # Total passes through your data
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+
+### 5. Logging and Evaluation
+logging_steps: 10
+save_steps: 100                                       # How often to save a checkpoint
+plot_loss: true                                       # Generates a nice loss curve chart
+
